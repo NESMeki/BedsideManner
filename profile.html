@@ -20,7 +20,7 @@
             "id": "mike",
             "reason": "Just because"
         }
-        let person = recent;
+        person = recent;
         document.getElementById("firstName").innerHTML = person.name;
         document.getElementById("titleName").innerHTML = person.title;
         document.getElementById("photo").src = "rsrc/" + person.id + ".jpg";
@@ -30,11 +30,14 @@
         document.getElementById("reason").innerHTML = "Reason: " + person.reason;
     }
     function getRecent(visits, id) { //takes in the list of visits, returns the most recent with given id
-        visit.forEach(element => {
+
+        for (let element of visits) {
+            console.log(element.id);  
             if (element.id == id) {
+                console.log("true");    
                 return element; //return most recent visit
             }
-        });
+        }
         return null; //no visit, return null
     }
     function getVisits() {
