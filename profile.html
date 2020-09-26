@@ -10,6 +10,7 @@
     function updateInfo(recent) {
         //just send the most recent visit with this person as the object to this html file, 
         //we can get the other info simply from the .who part of the object. 
+        
         let person = { //this is a temp, replace later with actual data
             "date": "Today",
             "time": "Now",
@@ -19,7 +20,7 @@
             "id": "mike",
             "reason": "Just because"
         }
-        //let person = recent;
+        let person = recent;
         document.getElementById("firstName").innerHTML = person.name;
         document.getElementById("titleName").innerHTML = person.title;
         document.getElementById("photo").src = "rsrc/" + person.id + ".jpg";
@@ -45,6 +46,8 @@
                 success: function(data) {
                     console.log('Succ: ' + JSON.stringify(data));
                     log = data;
+                    let params = (new URL(document.location)).searchParams;
+                    let id = params.get("id");
                     recent = getRecent(log, id);
                     updateInfo(recent);
                 },
