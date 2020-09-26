@@ -2,6 +2,25 @@
 <html>
 
 <head>
+    <style>html
+        {
+        text-align:center;
+        font-family: 'gilroy-extrabold';
+       }
+   </style>
+   <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      height: 20%;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+    </style>
+
+    <link rel="stylesheet" href="log.css">
     <title>Visit Log</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
@@ -71,7 +90,7 @@
             text-align: center;
             border: 2px solid #00001a;
             color: #f9ffff;
-            height: 40px;
+            height: 20px;
         }
 
         td {
@@ -85,9 +104,16 @@
 
 <body onload="getVisits()">
 
-<h1>DocMeet</h1>
-
-<h2>Visit Log</h2>
+    <div class="header">
+        <h1>BedsideManner</h1>
+        <p>A <b>patient-first</b> interactive menu.</p>
+      </div>
+      
+      <div class="navbar">
+        <a href="index.html">Medical Staff</a>
+        <a href="log.html" class="active">Visit Log</a>
+        <a href="new.html">Add New Visit</a>
+      </div>
 
 <p id="start"></p>
 
