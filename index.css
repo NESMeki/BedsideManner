@@ -8,6 +8,7 @@
     src: url('gilroy-extrabold.otf');
 }
 
+
 .collapsible {
   background-color: #46849b;
   color:  #eee;
@@ -42,7 +43,7 @@
 
 /* Style the collapsible content. Note: hidden by default */
 .content {
-  padding: 0 18px;
+  padding: 18px;
   display: none;
   overflow: hidden;
   font-family: 'gilroy-light';
@@ -57,7 +58,7 @@
     background-image: url("BedsideMannerAuxLogo.png");
     background-repeat: no-repeat;
     background-position-y: center;
-    background-position-x: 80%;
+    background-position-x: 85%;
     color: white;
   }
 
