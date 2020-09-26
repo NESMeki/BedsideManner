@@ -19,7 +19,14 @@
         document.getElementById("titleName").innerHTML = person.title;
         document.getElementById("photo").src = "rsrc/" + person.id + ".jpg";
     }
-
+    function getRecent(visits, id) { //takes in the list of visits, returns the most recent with given id
+        visit.array.forEach(element => {
+            if (element.who.id == id) {
+                return element; //return most recent visit
+            }
+        });
+        return null; //no visit, return null
+    }
 </script>
 <style type="text/css">
     table {
