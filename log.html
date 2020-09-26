@@ -3,43 +3,42 @@
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style type="text/css"></style>
-</head>
-
-<body>
-<script>
-    function renderVisits(visits) {
-        visits.array.forEach(element => {
-            let table = document.createElement("TABLE"); //create table object
-            document.getElementById("start").appendChild(table); //add table as child
-            table.appendChild(lableRow); //add label row to table
-            //populate the labelrow
-            let dayHead = document.createElement("TH"); 
-            dayHead.appendChild(document.createTextNode("Date and Time")); 
-            lableRow.appendChild(dayHead); 
-            let whoHead = document.createElement("TH"); 
-            whoHead.appendChild(document.createTextNode("Staff Member"));
-            lableRow.appendChild(whoHead);
-            let reasonHead = document.createElement("TH"); 
-            reasonHead.appendChild(document.createTextNode("Reason"));
-            lableRow.appendChild(reasonHead);
-            //create info row
-            let infoRow = document.createElement("TR"); //create row for info
-            table.appendChild(infoRow); //add info row to table
-            //populate the infrorow
-            let dayInfo = document.createElement("TD");
-            dayInfo.appendChild(document.createTextNode("Date: " + element.date));
-            dayInfo.appendChild(document.createElement("br"));
-            dayInfo.appendChild(document.createTextNode("Time: " + element.time)); 
-            infoRow.appendChild(dayInfo);
-            let whoInfo = document.createElement("TD");
-            whoInfo.appendChild(document.createTextNode(element.who)); //change 
-            infoRow.appendChild(whoInfo);
-            let reasonInfo = document.createElement("TD");
-            reasonInfo.appendChild(document.createTextNode(element.reason));
-            infoRow.appendChild(reasonInfo);  
-        });
-
+    <script>
+        function renderVisits(visits) {
+            visits.forEach(element => {
+                let table = document.createElement("TABLE"); //create table object
+                document.getElementById("start").appendChild(table); //add table as child
+                let lableRow = document.createElement("TR"); //creates row for labels
+                table.appendChild(lableRow); //add label row to table
+                //populate the labelrow
+                let dayHead = document.createElement("TH"); 
+                dayHead.appendChild(document.createTextNode("Date and Time")); 
+                lableRow.appendChild(dayHead); 
+                let whoHead = document.createElement("TH"); 
+                whoHead.appendChild(document.createTextNode("Staff Member"));
+                lableRow.appendChild(whoHead);
+                let reasonHead = document.createElement("TH"); 
+                reasonHead.appendChild(document.createTextNode("Reason"));
+                lableRow.appendChild(reasonHead);
+                //create info row
+                let infoRow = document.createElement("TR"); //create row for info
+                table.appendChild(infoRow); //add info row to table
+                //populate the infrorow
+                let dayInfo = document.createElement("TD");
+                dayInfo.appendChild(document.createTextNode("Date: " + element.date));
+                dayInfo.appendChild(document.createElement("br"));
+                dayInfo.appendChild(document.createTextNode("Time: " + element.time)); 
+                infoRow.appendChild(dayInfo);
+                let whoInfo = document.createElement("TD");
+                whoInfo.appendChild(document.createTextNode(element.who)); //change 
+                infoRow.appendChild(whoInfo);
+                let reasonInfo = document.createElement("TD");
+                reasonInfo.appendChild(document.createTextNode(element.reason));
+                infoRow.appendChild(reasonInfo); 
+                document.getElementById("start").appendChild(document.createElement("br")); 
+            });
+        }
+    
         function getVisits() {
             $.ajax ({
                 method: 'GET',
@@ -54,14 +53,36 @@
                 }
             });
         }
-    }
-</script>
+    </script>
+    <style type="text/css">
+            table {
+            border: 2px solid #00001a;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #00001a;
+            text-align: center;
+            border: 2px solid #00001a;
+            color: #f9ffff;
+            height: 40px;
+        }
+
+        td {
+            border: 2px solid #00001a;
+            padding: 7px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body onload="getVisits()">
 
 <h1>DocMeet</h1>
 
 <h2>Visit Log</h2>
 
-<p id="start" onload="getVisits()"></p>
+<p id="start"></p>
 
 </body>
 
