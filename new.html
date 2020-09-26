@@ -111,7 +111,6 @@
     function sendVisit() {
         let id = document.getElementById("idText").value;
         let whomst = findPerson(id);
-        alert(JSON.stringify(whomst));
         let reason = document.getElementById("visit").value;
         if (id != "") {
             let visit = {
