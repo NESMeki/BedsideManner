@@ -52,24 +52,17 @@ function sendVisit() {
     let id = document.getElementById("idText").value;
     let reason = document.getElementById("visit").value;
     if (name != "" && id != "") {
-        let data = {
-            "id": 1,
+        let visit = {
+            "id": id,
             "date": "today",
             "time": "now",
             "who": name,
             "reason": reason
         };
-        $.ajax({
-            type: 'POST',
-            url: "/",
-            data: JSON.stringify(data),
-            success: function(response) {
+        
+        
 
-            },
-            error: function(response) {
-
-            }
-        })
+        
     }
 }
 </script>
