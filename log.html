@@ -50,11 +50,14 @@
                 dayInfo.appendChild(document.createTextNode("Time: " + element.time)); 
                 infoRow.appendChild(dayInfo);
                 let whoInfo = document.createElement("TD");
+                let aaa = document.createElement("A");//
+                aaa.setAttribute('href',"profile.html?id=" + element.id);//
                 let picture = document.createElement("IMG");
+                aaa.appendChild(picture);
                 picture.src = "rsrc/" + element.id + ".jpg"; //change?
                 picture.style="width:100px;height:100px;border-radius:50%";
                 
-                whoInfo.appendChild(picture);
+                whoInfo.appendChild(aaa);
                 whoInfo.appendChild(document.createElement("br"));
                 whoInfo.appendChild(document.createTextNode(element.name));
                 infoRow.appendChild(whoInfo);

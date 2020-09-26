@@ -39,9 +39,6 @@
 <body>
 <h1>New Visit</h1>
 
-<input class="textBox" type="text" id="nameText" placeholder= "Enter Name . . . " value="">
-<br />
-<br />
 <input class="textBox" type="text" placeholder="Enter Employee ID . . ." id="idText" value="">
 <br />
 <h2>Choose Visit Purpose</h2>
@@ -67,19 +64,19 @@
         "id": "mike"
     }
     let chris = {
-        "name": "Chris",
+        "name": "Chris Smith",
         "title": "Personnel",
         "fact": "He is an RA",
         "id": "chris"
     }
     let alex = {
-        "name": "Alex",
+        "name": "Alex Eichert",
         "title": "Doctor",
         "fact": "He is not Yung Gravy",
         "id": "alex"
     }
     let philip = {
-        "name": "Philip",
+        "name": "Philip Tubiolo",
         "title": "Doctor",
         "fact": "Likes MATLAB",
         "id": "philip"
@@ -126,7 +123,6 @@
                 "id": whomst.id,
                 "reason": reason
             };
-            
             $.ajax({
                 method: 'POST', 
                 url: "http://localhost:8000/",
