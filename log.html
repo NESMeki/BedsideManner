@@ -31,6 +31,11 @@
                 dayInfo.appendChild(document.createTextNode("Time: " + element.time)); 
                 infoRow.appendChild(dayInfo);
                 let whoInfo = document.createElement("TD");
+                let picture = document.createElement("IMG");
+                picture.src = "rsrc/" + "mike" + ".jpg"; //change
+                picture.style="width:130px;height:130px;"; 
+                whoInfo.appendChild(picture);
+                whoInfo.appendChild(document.createElement("br"));
                 whoInfo.appendChild(document.createTextNode(element.who)); //change 
                 infoRow.appendChild(whoInfo);
                 let reasonInfo = document.createElement("TD");
@@ -71,6 +76,7 @@
 
         td {
             border: 2px solid #00001a;
+            text-align: center;
             padding: 7px;
             width: 200px;
         }
