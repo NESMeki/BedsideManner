@@ -32,11 +32,11 @@
                 infoRow.appendChild(dayInfo);
                 let whoInfo = document.createElement("TD");
                 let picture = document.createElement("IMG");
-                picture.src = "rsrc/" + "mike" + ".jpg"; //change
+                picture.src = "rsrc/" + element.who.id + ".jpg"; //change?
                 picture.style="width:100px;height:100px;"; 
                 whoInfo.appendChild(picture);
                 whoInfo.appendChild(document.createElement("br"));
-                whoInfo.appendChild(document.createTextNode(element.who)); //change 
+                whoInfo.appendChild(document.createTextNode(element.who.name)); //change?
                 infoRow.appendChild(whoInfo);
                 let reasonInfo = document.createElement("TD");
                 reasonInfo.appendChild(document.createTextNode(element.reason));
