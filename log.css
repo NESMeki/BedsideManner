@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'gilroy-light';
+    src: url('gilroy-light.otf');
+}
+@font-face {
+    font-family: 'gilroy-extrabold';
+    src: url('gilroy-extrabold.otf');
+}
+
+.header {
+    padding: 80px;
+    text-align: center;
+    background: #4e504f;
+    background-image: url("BedsideMannerAuxLogo.png");
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 85%;
+    color: white;
+  }
+
+  .navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+  }
+  
+  /* Style the navigation bar links */
+  .navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+
+  .navbar a.active {
+    background-color: #666;
+    color: white;
+  }
