@@ -5,6 +5,40 @@
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function renderVisits(visits) {
+        visits.array.forEach(element => {
+            let table = document.createElement("TABLE"); //create table object
+            document.getElementById("start").appendChild(table); //add table as child
+            table.appendChild(lableRow); //add label row to table
+            //populate the labelrow
+            let dayHead = document.createElement("TH"); 
+            dayHead.appendChild(document.createTextNode("Date and Time")); 
+            lableRow.appendChild(dayHead); 
+            let whoHead = document.createElement("TH"); 
+            whoHead.appendChild(document.createTextNode("Staff Member"));
+            lableRow.appendChild(whoHead);
+            let reasonHead = document.createElement("TH"); 
+            reasonHead.appendChild(document.createTextNode("Reason"));
+            lableRow.appendChild(reasonHead);
+            //create info row
+            let infoRow = document.createElement("TR"); //create row for info
+            table.appendChild(infoRow); //add info row to table
+            //populate the infrorow
+            let dayInfo = document.createElement("TD");
+            dayInfo.appendChild(document.createTextNode("Date: " + element.date));
+            dayInfo.appendChild(document.createElement("br"));
+            dayInfo.appendChild(document.createTextNode("Time: " + element.time)); 
+            infoRow.appendChild(dayInfo);
+            let whoInfo = document.createElement("TD");
+            whoInfo.appendChild(document.createTextNode(element.who.name));
+            infoRow.appendChild(whoInfo);
+            let reasonInfo = document.createElement("TD");
+            reasonInfo.appendChild(document.createTextNode(element.why));
+            infoRow.appendChild(reasonInfo);  
+        });
+    }
+</script>
 <style type="text/css">
 </style>
 
@@ -12,6 +46,8 @@
 <h1>DocMeet</h1>
 
 <h2>Visit Log</h2>
+
+<p id="start"></p>
 
 </body>
 
