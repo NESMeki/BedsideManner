@@ -112,10 +112,11 @@
         let id = document.getElementById("idText").value;
         let whomst = findPerson(id);
         let reason = document.getElementById("visit").value;
+        let d = new Date();
         if (id != "") {
             let visit = {
-                "date": "today",
-                "time": "now",
+                "date": d.toDateString(),
+                "time": d.toLocaleTimeString(),
                 "name": whomst.name,
                 "title": whomst.title,
                 "fact": whomst.fact,
