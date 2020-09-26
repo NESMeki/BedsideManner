@@ -71,7 +71,7 @@
   }
   
   /* Style the navigation bar links */
-  .navbar a {
+  .navbar a{
     float: left;
     display: block;
     color: white;
@@ -79,3 +79,9 @@
     padding: 14px 20px;
     text-decoration: none;
   }
+
+  .navbar a.active {
+    background-color: #666;
+    color: white;
+  }
+  
