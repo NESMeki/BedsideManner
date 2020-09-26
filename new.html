@@ -2,7 +2,6 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="newStyle.css" />
 </head>
 
 <style type="text/css">
@@ -11,31 +10,23 @@
 
 <body>
 <h1>DocMeet</h1>
-<h2>test run</h2>
 
 <h2>New Visit</h2>
 
-<label>Please Enter Your Name:  <input type="text" id="nameText" value="Name"></label><br />
-
-<p id="nameText"></p>
-
-<label>Please Enter Your ID Number:  <input type="text" id="idText" value="ID#"></label><br />
-
-<p id="idText"></p>
-
-<p>What's the Purpose of Your Visit?</p>
-
-<div class="dropdown">
-    <button class="dropbtn">Visit Purpose</button>
-    <div id="visitDropdown" class="dropdown-content">
-      <a href="#">Administer Medication</a>
-      <a href="#">Check Vitals</a>
-      <a href="#">Insurance Inquiry</a>
-      <a href="#">Cleaning</a>
-      <a href="#">Food Delivery</a>
-    </div>
-</div>
+<label>Please Enter Your Name:  <input type="text" id="nameText" value="Name"></label>
 <br />
+<br />
+<label>Please Enter Your ID Number:  <input type="text" id="idText" value="ID#"></label>
+<br />
+<br />
+<label for="visit">Purpose for Visit: </label>
+<select name="visit" id="visit">
+  <option value="vitals">Check Vitals</option>
+  <option value="meds">Administer Medication</option>
+  <option value="clean">Cleaning</option>
+  <option value="food">Food Delivery</option>
+  <option value="insurance">Insurance Inquiry</option>
+</select>
 <br />
 <br />
 <button type="button">Submit New Visit</button>
