@@ -102,17 +102,16 @@
         }
     }
 
-    function findPerson(name) {
+    function findPerson(id) {
         people.forEach(element => {
-            if (element.name == name) {return element;}
+            if (element.id == id) {return element;}
         })
         return other;
     }
 
     function sendVisit() {
-        let name = document.getElementById("nameText").value;
-        let whomst = findPerson(name);
         let id = document.getElementById("idText").value;
+        let whomst = findPerson(id);
         let reason = document.getElementById("visit").value;
         if (name != "" && id != "") {
             currentId++;
