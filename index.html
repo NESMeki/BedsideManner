@@ -82,6 +82,27 @@
             }
           });
         }
+
+        function getVisits() {
+          let log = {};  
+          $.ajax ({
+                method: 'GET',
+                url: "http://localhost:8000",
+                crossdomain: true,
+                success: function(data) {
+                    console.log('Succ: ' + JSON.stringify(data));
+                    log = data;
+                },
+                error: function(response) {
+                    console.log(response.status + " " + response.statusText);
+                }
+            });
+            return log;
+        }
+
+        let log = getVisits();
+
+
         </script>
     <div class="bg"></div>
 </body>
