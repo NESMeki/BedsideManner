@@ -37,6 +37,20 @@
             reasonInfo.appendChild(document.createTextNode(element.reason));
             infoRow.appendChild(reasonInfo);  
         });
+
+        function getVisits() {
+            $.ajax ({
+                method: 'GET',
+                url: "http://localhost:8000",
+                crossdomain: true,
+                success: function(data) {
+                    console.log('Succ: ' + JSON.stringify(data));
+                },
+                error: function(response) {
+                    console.log(response.status + " " + response.statusText);
+                }
+            });
+        }
     }
 </script>
 <style type="text/css">
@@ -47,7 +61,7 @@
 
 <h2>Visit Log</h2>
 
-<p id="start"></p>
+<p id="start" onload="getVisits()"></p>
 
 </body>
 
