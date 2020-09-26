@@ -3,7 +3,12 @@
 
 <head>
     <title>DocMeet Profile</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="profile.css">
+    <style>html
+        {
+        font-family: 'gilroy-extrabold';
+       }
+    </style>
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -66,10 +71,11 @@
         border: 5px outset #3d768a;
         background-color: lightblue;    
         text-align: center;
-        font-family: url(gilroy-extrabold.otf);
     }
     .photoSec {
-        border: 5px  #3d768a;
+        border: 5px outset #3d768a;
+        background-color: lightblue; 
+        text-align: center;
     }
     table {
         margin-left: auto;
@@ -92,12 +98,22 @@
     .pic {
         width:130px;
         height:130px;
-        image
-        text-align: center;
+        size: 200%;
         border-radius: 50%;
     }
     .inner {
         text-align: center;
+    }
+    .funFact {
+        border: 5px outset #3d768a;
+        background-color: #599cb4;    
+        text-align: center;
+    }
+    .titleBox {
+        border: 5px outset #3d768a;
+        background-color: #599cb4;    
+        text-align: center;
+        font-size: 13px;
     }
 </style>
 
@@ -113,18 +129,21 @@
         <a href="new.html">Add New Visit</a>
       </div>
 
-      
-        
-          <h2><p id="firstName" class="head">First Last</p> <p id="titleName" class="head">Title</p></h2>
+      <div class=titleBox>
+        <h2><p id="firstName" class="head">First Last</p> <p id="titleName" class="head">Title</p></h2>
+      </div>
+          
+
+
           <div class = photoSec>
             <h5>Photo of me:</h5>
             <img id="photo" class="pic" src="rsrc/chris.jpg" alt="Photo of Doctor" style="width:130px">
         </div>
-           <br /><br /><br />
-          <br>
+  
+<div class=funFact>
+    <h2>Fun fact:</h2>
     <p class="inner" id="fact"></p>
-<br>
-
+</div>
 
 <div class = lastVisit>
     <h2>Last visit:</h2>
@@ -132,8 +151,8 @@
 <p class="inner" id="time">Time:</p>
 <p class="inner" id="reason">Reason:</p>
 </div>
-<h2>Fun fact:</h2>
-<p class="inner" id="fact"></p>
+
+
 
 </body>
 
