@@ -20,10 +20,11 @@
     <style>
         html {
             background-image:
-            url('etc.jpg');
+            url('BedSideManner.jpg');
             background-repeat: no-repeat;
-            background-position: bottom;
-            background-size: 25%;
+            background-position-x: center;
+            background-position-y: 70%;
+            background-size: 40%;
             height: 100%;
             overflow: hidden;
             
@@ -36,8 +37,6 @@
 </style>
 
 <body>
-<h1>DocMeet</h1>
-
 <h2>New Visit</h2>
 
 <input class="textBox" type="text" id="nameText" placeholder= "Enter Name . . . " value="">
@@ -58,7 +57,7 @@
 <input class = "textBox" type = "text" style="align-self: auto" placeholder = "Other Visit . . ." name = "optionalBox" id = "optBox" disabled = "true">
 <br />
 <br />
-<button class = "submitButton" onclick="sendVisit()" type="button">Submit New Visit</button>
+<a href=index.html class = "submitButton" onclick="sendVisit()" type="button">Submit New Visit</a>
 
 <script>
 function changetextbox()

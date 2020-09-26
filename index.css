@@ -53,5 +53,57 @@
 .moveSite {
     position: absolute;
     right: 100px;
-    top: 25px;
+    top: 20px;
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #599bb3 5%, #00c4b4 100%);
+	background-color:#599bb3;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:'gilroy_light';
+	font-size:12px;
+	font-weight:bold;
+	
+	text-decoration:none;
+    text-shadow:0px 1px 0px #3d768a;
+    height: 30px;
+	width: 130px;
 }
+.moveSite:hover {
+	background:linear-gradient(to bottom, #00c4b4 5%, #599bb3 100%);
+	background-color:#00c4b4;
+}
+.moveSite:active {
+	position:relative;
+	top:1px;
+}
+
+.header {
+    padding: 80px;
+    text-align: center;
+    background: #4e504f;
+    background-image: url("text1.PNG");
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 80%;
+    color: white;
+  }
+
+  .navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+  }
+  
+  /* Style the navigation bar links */
+  .navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
