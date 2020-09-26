@@ -45,15 +45,28 @@ app.use(function (req, res) {
 })
 */
 
+
 var express = require('express');
-var bodyParser = require('body-parser');
 var app = express();
+var fs = require('fs');
+
+var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.post('/endpoint', function(req, res){
+
+app.post('/', function(req, res){
 	console.log('body: ' + JSON.stringify(req.body));
-	res.send(req.body);
+	res.send("success");
+
+	let record = req.body;
+	fs.readFile('visit-log.json', function(err, data) {
+		var json = JSON.parse(data);
+		json.push(record);
+		console.log(JSON.stringify(json));
+		fs.writeFileSync('visit-log.json', JSON.stringify(json));
+	});
+
 });
 
 app.listen(8000);

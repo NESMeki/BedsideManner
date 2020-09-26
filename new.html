@@ -57,7 +57,7 @@
 <input class = "textBox" type = "text" style="align-self: auto" placeholder = "Other Visit . . ." name = "optionalBox" id = "optBox" disabled = "true">
 <br />
 <br />
-<button class = "submitButton" type="button">Submit New Visit</button>
+<button class = "submitButton" onclick="sendVisit()" type="button">Submit New Visit</button>
 
 <script>
 function changetextbox()
@@ -69,6 +69,7 @@ function changetextbox()
         document.getElementById("optBox").value = ""
     }
 }
+
 function sendVisit() {
     let name = document.getElementById("nameText").value;
     let id = document.getElementById("idText").value;
@@ -81,7 +82,19 @@ function sendVisit() {
             "who": name,
             "reason": reason
         };
-        
+
+        $.ajax({
+            method: 'POST', 
+            url: "http://localhost:8000/",
+            data: visit,
+            success: function (data) {
+                console.log('Success: ' + JSON.stringify(data));
+            },
+            error: function (xhr, status, error) {
+                console.log('Error: ' + error.message);
+            }
+        });
+
         
 
         
