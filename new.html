@@ -4,7 +4,30 @@
 <head>
     <link rel="stylesheet" href="newStyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="client.js"></script>
+    <style>
+        input {
+         text-align:center;
+         font-family: 'gilroy-light';
+        }
+    </style>
+    <style>
+        body {
+         text-align:center;
+         font-family: 'gilroy-extrabold';
+        }
+    </style>
+    <style>
+        html {
+            background-image:
+            url('etc.jpg');
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: 25%;
+            height: 100%;
+            overflow: hidden;
+            
+        }
+    </style>
 </head>
 
 <style type="text/css">
@@ -16,15 +39,14 @@
 
 <h2>New Visit</h2>
 
-<label>Please Enter Your Name:  <input class="text1" type="text" id="nameText" value=""></label>
+<input class="textBox" type="text" id="nameText" placeholder= "Enter Name . . . " value="">
 <br />
 <br />
-<label>Please Enter Your ID Number:  <input class="text2" type="text" id="idText" value=""></label>
+<input class="textBox" type="text" placeholder="Enter Employee ID . . ." id="idText" value="">
 <br />
-<br />
-<label for="visit">Purpose for Visit: </label>
-<select name="visit" id="visit" onChange = "changetextbox();">
-  <option value="blank">Choose Option</option>
+<h4>Choose Visit Purpose</h4>
+<select class = "dropDown" name="visit" id="visit"  onChange = "changetextbox();">
+  <option value="blank">  </option>
   <option value="vitals">Check Vitals</option>
   <option value="meds">Administer Medication</option>
   <option value="clean">Cleaning</option>
@@ -32,10 +54,10 @@
   <option value="insurance">Insurance Inquiry</option>
   <option value="other">Other</option>
 </select>
-<input type = "text" name = "optionalBox" id = "optBox" disabled = "true">
+<input class = "textBox" type = "text" style="align-self: auto" placeholder = "Other Visit . . ." name = "optionalBox" id = "optBox" disabled = "true">
 <br />
 <br />
-<button class = "submitButton" type="button" onclick="sendVisit()">Submit New Visit</button>
+<button class = "submitButton" type="button">Submit New Visit</button>
 
 <script>
 function changetextbox()
@@ -47,6 +69,7 @@ function changetextbox()
         document.getElementById("optBox").value = ""
     }
 }
+<<<<<<< HEAD
 function sendVisit() {
     let name = document.getElementById("nameText").value;
     let id = document.getElementById("idText").value;
@@ -65,6 +88,8 @@ function sendVisit() {
         
     }
 }
+=======
+>>>>>>> refs/remotes/origin/master
 </script>
 
 </body>

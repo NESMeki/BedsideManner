@@ -13,6 +13,28 @@
     }
     td {
         text-align: center;
+        width: 20%;
+        height: 20%;
+    }
+    h2{
+        margin-left: 45%;
+        margin-right: 45%;
+        font-size: 170%;
+    }
+    .head {
+        font-size: 200%;
+        text-align: left;
+        padding: 5%;
+    }
+    .pic {
+        width:130px;
+        height:130px;
+        float: right;
+        text-align: right;
+        border-radius: 50%;
+    }
+    .inner {
+        text-align: center;
     }
 </style>
 
@@ -21,22 +43,26 @@
 <table>
     <tr>
         <td>
-            <img src="rsrc/mike.jpg" alt="Photo of Doctor" style="width:128px;height:128px;">
+            <img class="pic" src="rsrc/mike.jpg" alt="Photo of Doctor">
         </td>
         <td>
-            <p>First Last</p>
-            <p>Title<p>
-        <td></td>
+            <p class="head">
+                First Last
+                <br><br>
+                Title
+            </p>
     </tr>
 </table>
 
+<br>
+
 <h2>Last visit:</h2>
 
-<p>Time:</p>
-<p>Purpose:</p>
+<p class="inner">Time:</p>
+<p class="inner">Purpose:</p>
 
 <h2>Fun fact:</h2>
-<p>Mike likes to cook!</p>
+<p class="inner">Mike likes to cook!</p>
 
 </body>
 
