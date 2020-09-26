@@ -64,7 +64,7 @@ app.post('/', function(req, res){
 	let record = req.body;
 	fs.readFile('visit-log.json', function(err, data) {
 		var json = JSON.parse(data);
-		json.push(record);
+		json.unshift(record);
 		console.log(JSON.stringify(json));
 		fs.writeFileSync('visit-log.json', JSON.stringify(json));
 	});

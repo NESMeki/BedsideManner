@@ -102,16 +102,15 @@
     }
 
     function findPerson(id) {
-        people.forEach(element => {
-            if (element.id == id) {return element;}
-        })
+        for(i=0; i<4; i++) {
+            if(people[i].id ==id) {return people[i];}
+        }
         return other;
     }
 
     function sendVisit() {
         let id = document.getElementById("idText").value;
         let whomst = findPerson(id);
-        alert(JSON.stringify(whomst));
         let reason = document.getElementById("visit").value;
         if (id != "") {
             let visit = {
