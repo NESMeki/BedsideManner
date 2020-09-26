@@ -60,7 +60,6 @@
 <button class = "submitButton" onclick="sendVisit()" type="button">Submit New Visit</button>
 
 <script>
-    let currentId = 0;
     let mike = {
         "name": "Mike McNeill",
         "title": "Doctor",
@@ -110,16 +109,18 @@
     }
 
     function sendVisit() {
+        console.log("pressed");
         let id = document.getElementById("idText").value;
         let whomst = findPerson(id);
         let reason = document.getElementById("visit").value;
         if (name != "" && id != "") {
-            currentId++;
             let visit = {
-                "id": currentId,
                 "date": "today",
                 "time": "now",
-                "who": whomst,
+                "name": whomst.name,
+                "title": whomst.title,
+                "fact": whomst.fact,
+                "id": whomst.id,
                 "reason": reason
         };
 
