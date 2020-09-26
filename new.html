@@ -35,7 +35,7 @@
 <input type = "text" name = "optionalBox" id = "optBox" disabled = "true">
 <br />
 <br />
-<button class = "submitButton" type="button">Submit New Visit</button>
+<button class = "submitButton" type="button" onclick="sendVisit()">Submit New Visit</button>
 
 <script>
 function changetextbox()
@@ -46,6 +46,9 @@ function changetextbox()
         document.getElementById("optBox").disabled=true;
         document.getElementById("optBox").value = ""
     }
+}
+function sendVisit() {
+
 }
 </script>
 
