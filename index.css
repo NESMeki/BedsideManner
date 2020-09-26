@@ -46,5 +46,12 @@
   display: none;
   overflow: hidden;
   font-family: 'gilroy-light';
+  text-align: left;
   background-color: #f1f1f1;
+}
+
+.moveSite {
+    position: absolute;
+    right: 100px;
+    top: 25px;
 }

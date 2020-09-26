@@ -3,24 +3,29 @@
 
 <head>
     <link rel="stylesheet" href="index.css">
-    <title>DocMeet Index</title>
-    <style>
-        body {
+    <title>Medical Staff</title>
+    <style>html
+         {
          text-align:center;
          font-family: 'gilroy-extrabold';
         }
     </style>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<button class = "moveSite" onclick='window.location.href = "new.html"' type="button"> Submit New Visit <i class='fas fa-edit'></i>
+</button>
+
+<h2>Medical Staff</h2>
 <body>
-
-    <h2>Medical Staff</h2>
-
     <button class="collapsible" type="button" >Doctors</button>
     <div class="content">
+      <img id="photo" class="pic" src="rsrc/chris.jpg" alt="Photo of Doctor">
       <p><a href= "profile.html">Dr. Eichert Profile</a></p>
+      
+      <p><a href= "profile.html">Dr. Smith Profile</a></p>
     </div>
     <button class="collapsible1" type="button" >Nurses</button>
     <div class="content">
