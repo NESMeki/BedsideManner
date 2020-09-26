@@ -1,2 +1,2 @@
-# DocMeet
-## SBU Hacks Project
+# BedsideManner
+## SBU Hacks 
