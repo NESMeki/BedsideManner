@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'gilroy-light';
+    src: url('gilroy-light.otf');
+}
+@font-face {
+    font-family: 'gilroy-extrabold';
+    src: url('gilroy-extrabold.otf');
+}
 
 .submitButton {
 	box-shadow: 0px 10px 14px -7px #276873;
@@ -7,12 +15,13 @@
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
-	font-size:20px;
+	font-family:'gilroy_light';
+	font-size:16px;
 	font-weight:bold;
 	padding:13px 32px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #3d768a;
+	width: 180px;
 }
 .submitButton:hover {
 	background:linear-gradient(to bottom, #00c4b4 5%, #599bb3 100%);
@@ -21,4 +30,28 @@
 .submitButton:active {
 	position:relative;
 	top:1px;
+}
+
+.textBox {
+	font-family: 'gilroy-light';
+	background-position: 10px 10px; 
+	background-repeat: no-repeat;
+	padding-left: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #3d768a;
+	border-radius: 5px; 
+	box-shadow: 10px 10px 10px rgba (136, 136, 136, 0.3);
+}
+
+.dropDown {
+	width: 180px;
+	background-position: 10px 10px; 
+	background-repeat: no-repeat;
+	padding-left: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #3d768a;
+	border-radius: 5px; 
+	box-shadow: 10px 10px 10px rgba (136, 136, 136, 0.3);
 }
