@@ -12,13 +12,14 @@
         //we can get the other info simply from the .who part of the object. 
         let person = { //this is a temp, replace later with actual data
             "name": "Mike McNeill",
-            "id": "mike",
-            "title": "Coder"
+            "title": "Doctor",
+            "fact": "In his free time, Mike loves to cook!",
+            "id": "mike"
         }
         document.getElementById("firstName").innerHTML = person.name;
         document.getElementById("titleName").innerHTML = person.title;
         document.getElementById("photo").src = "rsrc/" + person.id + ".jpg";
-        //comment
+        document.getElementById("fact").innerHTML = person.fact;
     }
     function getRecent(visits, id) { //takes in the list of visits, returns the most recent with given id
         visit.array.forEach(element => {
@@ -61,7 +62,7 @@
     }
 </style>
 
-<body>
+<body onload="updateInfo()">
 
 <table>
     <tr>
@@ -76,13 +77,13 @@
 
 <br>
 
-<h2 onclick="updateInfo()">Last visit:</h2>
+<h>Last visit:</h2>
 
 <p class="inner">Time:</p>
 <p class="inner">Purpose:</p>
 
 <h2>Fun fact:</h2>
-<p class="inner">Mike likes to cook!</p>
+<p class="inner" id="fact"></p>
 
 </body>
 
