@@ -2,23 +2,69 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="index.css">
     <title>DocMeet Index</title>
+    <style>
+        body {
+         text-align:center;
+         font-family: 'gilroy-extrabold';
+        }
+    </style>
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<style>
-    h2 {
-        text-align: center;
-    }
-</style>
 
 <body>
-<h2>Doctors</h2>
 
-<h2>Nurses</h2>
+    <h2>Medical Staff</h2>
 
-<h2>Personnel</h2>
+    <button class="collapsible" type="button" >Doctors</button>
+    <div class="content">
+      <p><a href= "profile.html">Dr. Eichert Profile</a></p>
+    </div>
+    <button class="collapsible1" type="button" >Nurses</button>
+    <div class="content">
+        <p><a href= "profile.html">Dr. Eichert Profile</a></p>
+    </div>
+    <button class="collapsible" type="button" >Personnel</button>
+    <div class="content">
+        <p><a href= "profile.html">Dr. Eichert Profile</a></p>
+    </div>
+    
+    <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+    </script>
 
+    <script>
+        var coll = document.getElementsByClassName("collapsible1");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+              content.style.display = "none";
+            } else {
+              content.style.display = "block";
+            }
+          });
+        }
+        </script>
+    
 </body>
 
 </html>
