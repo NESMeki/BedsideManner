@@ -57,7 +57,7 @@
 <input class = "textBox" type = "text" style="align-self: auto" placeholder = "Other Visit . . ." name = "optionalBox" id = "optBox" disabled = "true">
 <br />
 <br />
-<a href="index.html" class = "submitButton" onclick="sendVisit()" type="button">Submit New Visit</a>
+<a href="index.html" class = "submitButton" onclick="return sendVisit()" type="button">Submit New Visit</a>
 
 <script>
     let mike = {
@@ -109,11 +109,11 @@
     }
 
     function sendVisit() {
-        console.log("pressed");
         let id = document.getElementById("idText").value;
         let whomst = findPerson(id);
+        alert(JSON.stringify(whomst));
         let reason = document.getElementById("visit").value;
-        if (name != "" && id != "") {
+        if (id != "") {
             let visit = {
                 "date": "today",
                 "time": "now",
@@ -122,26 +122,27 @@
                 "fact": whomst.fact,
                 "id": whomst.id,
                 "reason": reason
+            };
+            $.ajax({
+                method: 'POST', 
+                url: "http://localhost:8000/",
+                crossdomain: true,
+                data: visit,
+                success: function (data) {
+                    console.log('Success: ' + JSON.stringify(data));
+                },
+                error: function (response) {
+                    console.log(response.status + ' ' + response.statusText);
+                }
+            });
         };
 
-        $.ajax({
-            method: 'POST', 
-            url: "http://localhost:8000/",
-            crossdomain: true,
-            data: visit,
-            success: function (data) {
-                console.log('Success: ' + JSON.stringify(data));
-            },
-            error: function (response) {
-                console.log(response.status + ' ' + response.statusText);
-            }
-        });
-
         
+
+        return true;
 
         
     }
-}
 </script>
 
 </body>
