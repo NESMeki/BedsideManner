@@ -2,7 +2,21 @@
 <html>
 
 <head>
-    <title>DocMeet Profile</title>
+    <title>BedsideManner</title>
+    <link rel="stylesheet" href="profile.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+* {
+  box-sizing: border-box;
+}
+</style>
+
+    <style>html
+        {
+        font-family: 'gilroy-extrabold';
+       }
+   </style>
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -57,11 +71,10 @@
         padding: 5%;
     }
     .pic {
-        width:130px;
-        height:130px;
-        float: right;
+        width:200px;
+        height:195px;
+        float: none;
         text-align: right;
-        border-radius: 50%;
     }
     .inner {
         text-align: center;
@@ -69,27 +82,34 @@
 </style>
 
 <body onload="updateInfo()">
+    <div class="header">
+        <h1>BedsideManner</h1>
+        <p>A <b>patient-first</b> interactive menu.</p>
+      </div>
+      
+      <div class="navbar">
+        <a href="index.html">Medical Staff</a>
+        <a href="log.html">Visit Log</a>
+        <a href="new.html">Add New Visit</a>
+      </div>
 
-<table>
-    <tr>
-        <td>
-            <img id="photo" class="pic" src="rsrc/chris.jpg" alt="Photo of Doctor">
-        </td>
-        <td>
-            <p id="firstName" class="head">First Last</p>
-            <p id="titleName" class="head">Title</p>
-    </tr>
-</table>
+      <div class="row">
+      <div class="side">
+        <h2>About Me</h2>
+        <h5>Photo of me:</h5>
+         <img id="photo" class="pic" src="rsrc/chris.jpg" alt="Photo of Doctor" style="float: inherit;">
+         <br /><br /><br />
 
-<br>
+        <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+      </div>
+      <div class="main">
+        <h5>Title description, Dec 7, 2017</h5>
+        <p>Some text..</p>
+        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        <br>
+      </div>
+    </div>
 
-<h2>Last visit:</h2>
-
-<p class="inner" id="date">Date:</p>
-<p class="inner" id="time">Time:</p>
-<p class="inner" id="reason">Reason:</p>
-
-<h2>Fun fact:</h2>
 <p class="inner" id="fact"></p>
 
 </body>
