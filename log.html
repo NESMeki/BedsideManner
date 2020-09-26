@@ -25,8 +25,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         function renderVisits(visits) {
-            visits.forEach(element => {
-                let table = document.createElement("TABLE"); //create table object
+            let table = document.createElement("TABLE"); //create table object
                 document.getElementById("start").appendChild(table); //add table as child
                 let lableRow = document.createElement("TR"); //creates row for labels
                 table.appendChild(lableRow); //add label row to table
@@ -40,6 +39,7 @@
                 let reasonHead = document.createElement("TH"); 
                 reasonHead.appendChild(document.createTextNode("Reason"));
                 lableRow.appendChild(reasonHead);
+            visits.forEach(element => {
                 //create info row
                 let infoRow = document.createElement("TR"); //create row for info
                 table.appendChild(infoRow); //add info row to table
@@ -52,7 +52,8 @@
                 let whoInfo = document.createElement("TD");
                 let picture = document.createElement("IMG");
                 picture.src = "rsrc/" + element.id + ".jpg"; //change?
-                picture.style="width:100px;height:100px;"; 
+                picture.style="width:100px;height:100px;border-radius:50%";
+                
                 whoInfo.appendChild(picture);
                 whoInfo.appendChild(document.createElement("br"));
                 whoInfo.appendChild(document.createTextNode(element.name));
