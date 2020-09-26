@@ -1,3 +1,5 @@
+![BedsideManner Logo](/BedSideManner.jpg)
+
 # BedsideManner
 ## SBU Hacks Fall 2020 
 
