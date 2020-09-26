@@ -107,31 +107,40 @@
           let ds = document.getElementById("doctorSet");
           for (const person of dr) {
             let row = document.createElement("TD");
+            let aaa = document.createElement("A");
+            aaa.setAttribute('href',"profile.html?id=" + person);
             let pic = document.createElement("IMG");
             pic.src = "rsrc/" + person + ".jpg";
             pic.id = person;
             pic.className = "people";
-            row.appendChild(pic);
+            aaa.appendChild(pic);
+            row.appendChild(aaa);
             ds.appendChild(row);
           }
           let ns = document.getElementById("nurseSet");
           for (const person of nrs) {
             let row = document.createElement("TD");
+            let aaa = document.createElement("A");
+            aaa.setAttribute('href',"profile.html?id=" + person);
             let pic = document.createElement("IMG");
             pic.src = "rsrc/" + person + ".jpg";
             pic.id = person;
             pic.className = "people";
-            row.appendChild(pic);
+            aaa.appendChild(pic);
+            row.appendChild(aaa);
             ns.appendChild(row);
           }
           let es = document.getElementById("etcSet");
           for (const person of etc) {
             let row = document.createElement("TD");
+            let aaa = document.createElement("A");
+            aaa.setAttribute('href',"profile.html?id=" + person);
             let pic = document.createElement("IMG");
             pic.src = "rsrc/" + person + ".jpg";
             pic.id = person;
             pic.className = "people";
-            row.appendChild(pic);
+            aaa.appendChild(pic);
+            row.appendChild(aaa);
             es.appendChild(row);
           }
         }

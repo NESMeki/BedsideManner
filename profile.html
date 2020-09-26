@@ -2,28 +2,16 @@
 <html>
 
 <head>
-    <title>BedsideManner</title>
-    <link rel="stylesheet" href="profile.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-* {
-  box-sizing: border-box;
-}
-</style>
-
-    <style>html
-        {
-        font-family: 'gilroy-extrabold';
-       }
-   </style>
+    <title>DocMeet Profile</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    function updateInfo() {
+    function updateInfo(recent) {
         //just send the most recent visit with this person as the object to this html file, 
         //we can get the other info simply from the .who part of the object. 
+        
         let person = { //this is a temp, replace later with actual data
             "date": "Today",
             "time": "Now",
@@ -33,6 +21,7 @@
             "id": "mike",
             "reason": "Just because"
         }
+        person = recent;
         document.getElementById("firstName").innerHTML = person.name;
         document.getElementById("titleName").innerHTML = person.title;
         document.getElementById("photo").src = "rsrc/" + person.id + ".jpg";
@@ -42,21 +31,51 @@
         document.getElementById("reason").innerHTML = "Reason: " + person.reason;
     }
     function getRecent(visits, id) { //takes in the list of visits, returns the most recent with given id
-        visit.array.forEach(element => {
-            if (element.who.id == id) {
+
+        for (let element of visits) {
+            console.log(element.id);  
+            if (element.id == id) {
+                console.log("true");    
                 return element; //return most recent visit
             }
-        });
+        }
         return null; //no visit, return null
+    }
+    function getVisits() {
+          let log = {};  
+          $.ajax ({
+                method: 'GET',
+                url: "http://localhost:8000",
+                crossdomain: true,
+                success: function(data) {
+                    console.log('Succ: ' + JSON.stringify(data));
+                    log = data;
+                    let params = (new URL(document.location)).searchParams;
+                    let id = params.get("id");
+                    recent = getRecent(log, id);
+                    updateInfo(recent);
+                },
+                error: function(response) {
+                    console.log(response.status + " " + response.statusText);
+                }
+            });
     }
 </script>
 <style type="text/css">
+    .lastVisit {
+        border: 5px outset #3d768a;
+        background-color: lightblue;    
+        text-align: center;
+        font-family: url(gilroy-extrabold.otf);
+    }
+    .photoSec {
+        border: 5px  #3d768a;
+    }
     table {
         margin-left: auto;
         margin-right: auto;
     }
     td {
-        text-align: center;
         width: 20%;
         height: 20%;
     }
@@ -66,22 +85,23 @@
         font-size: 170%;
     }
     .head {
-        font-size: 200%;
-        text-align: left;
+        font-size: 100%;
+        text-align: center;
         padding: 5%;
     }
     .pic {
-        width:200px;
-        height:195px;
-        float: none;
-        text-align: right;
+        width:130px;
+        height:130px;
+        image
+        text-align: center;
+        border-radius: 50%;
     }
     .inner {
         text-align: center;
     }
 </style>
 
-<body onload="updateInfo()">
+<body onload="getVisits()">
     <div class="header">
         <h1>BedsideManner</h1>
         <p>A <b>patient-first</b> interactive menu.</p>
@@ -93,23 +113,26 @@
         <a href="new.html">Add New Visit</a>
       </div>
 
-      <div class="row">
-      <div class="side">
-        <h2>About Me</h2>
-        <h5>Photo of me:</h5>
-         <img id="photo" class="pic" src="rsrc/chris.jpg" alt="Photo of Doctor" style="float: inherit;">
-         <br /><br /><br />
+      
+        
+          <h2><p id="firstName" class="head">First Last</p> <p id="titleName" class="head">Title</p></h2>
+          <div class = photoSec>
+            <h5>Photo of me:</h5>
+            <img id="photo" class="pic" src="rsrc/chris.jpg" alt="Photo of Doctor" style="width:130px">
+        </div>
+           <br /><br /><br />
+          <br>
+    <p class="inner" id="fact"></p>
+<br>
 
-        <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-      </div>
-      <div class="main">
-        <h5>Title description, Dec 7, 2017</h5>
-        <p>Some text..</p>
-        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        <br>
-      </div>
-    </div>
 
+<div class = lastVisit>
+    <h2>Last visit:</h2>
+<p class="inner" id="date">Date:</p>
+<p class="inner" id="time">Time:</p>
+<p class="inner" id="reason">Reason:</p>
+</div>
+<h2>Fun fact:</h2>
 <p class="inner" id="fact"></p>
 
 </body>
