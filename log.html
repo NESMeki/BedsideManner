@@ -2,9 +2,11 @@
 <html>
 
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style type="text/css"></style>
 </head>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
 <script>
     function renderVisits(visits) {
         visits.array.forEach(element => {
@@ -31,23 +33,35 @@
             dayInfo.appendChild(document.createTextNode("Time: " + element.time)); 
             infoRow.appendChild(dayInfo);
             let whoInfo = document.createElement("TD");
-            whoInfo.appendChild(document.createTextNode(element.who.name));
+            whoInfo.appendChild(document.createTextNode(element.who)); //change 
             infoRow.appendChild(whoInfo);
             let reasonInfo = document.createElement("TD");
-            reasonInfo.appendChild(document.createTextNode(element.why));
+            reasonInfo.appendChild(document.createTextNode(element.reason));
             infoRow.appendChild(reasonInfo);  
         });
+
+        function getVisits() {
+            $.ajax ({
+                method: 'GET',
+                url: "http://localhost:8000",
+                crossdomain: true,
+                success: function(data) {
+                    console.log('Succ: ' + JSON.stringify(data));
+                    renderVisits(data);
+                },
+                error: function(response) {
+                    console.log(response.status + " " + response.statusText);
+                }
+            });
+        }
     }
 </script>
-<style type="text/css">
-</style>
 
-<body>
 <h1>DocMeet</h1>
 
 <h2>Visit Log</h2>
 
-<p id="start"></p>
+<p id="start" onload="getVisits()"></p>
 
 </body>
 

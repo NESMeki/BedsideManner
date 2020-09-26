@@ -87,12 +87,13 @@ function sendVisit() {
         $.ajax({
             method: 'POST', 
             url: "http://localhost:8000/",
+            crossdomain: true,
             data: visit,
             success: function (data) {
                 console.log('Success: ' + JSON.stringify(data));
             },
-            error: function (xhr, status, error) {
-                console.log('Error: ' + error.message);
+            error: function (response) {
+                console.log(response.status + ' ' + response.statusText);
             }
         });
 
