@@ -102,9 +102,9 @@
     }
 
     function findPerson(id) {
-        people.forEach(element => {
-            if (element.id == id) {return element;}
-        })
+        for(i=0; i<4; i++) {
+            if(people[i].id ==id) {return people[i];}
+        }
         return other;
     }
 
