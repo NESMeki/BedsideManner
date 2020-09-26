@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="newStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <style type="text/css">
@@ -20,19 +22,30 @@
 <br />
 <br />
 <label for="visit">Purpose for Visit: </label>
-<select name="visit" id="visit">
+<select name="visit" id="visit" onChange = "changetextbox();">
+  <option value="blank">Choose Option</option>
   <option value="vitals">Check Vitals</option>
   <option value="meds">Administer Medication</option>
   <option value="clean">Cleaning</option>
   <option value="food">Food Delivery</option>
   <option value="insurance">Insurance Inquiry</option>
+  <option value="other">Other</option>
 </select>
+<input type = "text" name = "optionalBox" id = "optBox" disabled = "true">
 <br />
 <br />
-<button type="button">Submit New Visit</button>
+<button class = "submitButton" type="button">Submit New Visit</button>
 
 <script>
-
+function changetextbox()
+{
+    if (document.getElementById("visit").value === "other") {
+        document.getElementById("optBox").disabled=false;
+    } else {
+        document.getElementById("optBox").disabled=true;
+        document.getElementById("optBox").value = ""
+    }
+}
 </script>
 
 </body>
