@@ -60,27 +60,67 @@
 <a href=index.html class = "submitButton" onclick="sendVisit()" type="button">Submit New Visit</a>
 
 <script>
-function changetextbox()
-{
-    if (document.getElementById("visit").value === "other") {
-        document.getElementById("optBox").disabled=false;
-    } else {
-        document.getElementById("optBox").disabled=true;
-        document.getElementById("optBox").value = ""
+    let currentId = 0;
+    let mike = {
+        "name": "Mike McNeill",
+        "title": "Doctor",
+        "fact": "In his free time, Mike loves to cook!",
+        "id": "mike"
     }
-}
+    let chris = {
+        "name": "Chris",
+        "title": "Doctor",
+        "fact": "He is an RA",
+        "id": "chris"
+    }
+    let alex = {
+        "name": "Alex",
+        "title": "P Doctor",
+        "fact": "He is not Yung Gravy",
+        "id": "alex"
+    }
+    let philip = {
+        "name": "Philip",
+        "title": "Doctor",
+        "fact": "likes matlab",
+        "id": "philip"
+    }
+    let other = {
+        "name": "Stacy",
+        "title": "Wine mom",
+        "fact": "Can outdrink you",
+        "id": "stock"
+    }
+    let people = [mike,chris,alex,philip];
+    function changetextbox()
+    {
+        if (document.getElementById("visit").value === "other") {
+            document.getElementById("optBox").disabled=false;
+        } else {
+            document.getElementById("optBox").disabled=true;
+            document.getElementById("optBox").value = ""
+        }
+    }
 
-function sendVisit() {
-    let name = document.getElementById("nameText").value;
-    let id = document.getElementById("idText").value;
-    let reason = document.getElementById("visit").value;
-    if (name != "" && id != "") {
-        let visit = {
-            "id": id,
-            "date": "today",
-            "time": "now",
-            "who": name,
-            "reason": reason
+    function findPerson(id) {
+        people.forEach(element => {
+            if (element.id == id) {return element;}
+        })
+        return other;
+    }
+
+    function sendVisit() {
+        let id = document.getElementById("idText").value;
+        let whomst = findPerson(id);
+        let reason = document.getElementById("visit").value;
+        if (name != "" && id != "") {
+            currentId++;
+            let visit = {
+                "id": currentId,
+                "date": "today",
+                "time": "now",
+                "who": whomst,
+                "reason": reason
         };
 
         $.ajax({
