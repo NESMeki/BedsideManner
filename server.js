@@ -59,7 +59,7 @@ app.use(cors());
 
 app.post('/', function(req, res){
 	console.log('body: ' + JSON.stringify(req.body));
-	res.status(200).send("success");
+	res.send(req.body);
 
 	let record = req.body;
 	fs.readFile('visit-log.json', function(err, data) {
@@ -69,6 +69,14 @@ app.post('/', function(req, res){
 		fs.writeFileSync('visit-log.json', JSON.stringify(json));
 	});
 
+});
+
+app.get('/', function(req, res) {
+	console.log('body: ' + JSON.stringify(req.body));
+	fs.readFile('visit-log.json', function(err, data) {
+		var json = JSON.parse(data);
+		res.send(json);
+	});
 });
 
 app.listen(8000);
