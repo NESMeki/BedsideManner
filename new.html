@@ -112,6 +112,9 @@
         let id = document.getElementById("idText").value;
         let whomst = findPerson(id);
         let reason = document.getElementById("visit").value;
+        if (reason == "other") {
+            reason = document.getElementById("optBox").value;
+        }
         let d = new Date();
         if (id != "") {
             let visit = {
