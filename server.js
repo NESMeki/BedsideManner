@@ -10,7 +10,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-
 app.post('/', function(req, res){
 	console.log('body: ' + JSON.stringify(req.body));
 	res.send(req.body);

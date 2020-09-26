@@ -9,6 +9,11 @@
          text-align:center;
          font-family: 'gilroy-extrabold';
         }
+        .people {
+          border-radius: 50%;
+          width:100px;
+          height:100px;
+        }
     </style>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
@@ -17,7 +22,7 @@
 
 </button>
 
-<body>
+<body onload="getVisits()">
     <div class="header">
         <h1>BedsideManner</h1>
         <p>A <b>patient-first</b> interactive menu.</p>
@@ -32,17 +37,24 @@
       
     <button class="collapsible" type="button" >Doctors</button>
     <div class="content">
-        <a href="profile.html"><img src="rsrc/alex.jpg" title="alex" style="border-radius: 50%" width="75" height="75" /></a>
-        <a href="profile.html"><img src="rsrc/philip.jpg" title="philip" style="border-radius: 50%" width="75" height="75" /></a>
+      <table>
+        <tr id="doctorSet">
+        </tr>
+      </table>
     </div>
     <button class="collapsible1" type="button" >Nurses</button>
     <div class="content">
-        <a href="profile.html"><img src="rsrc/mike.jpg" title="mike" style="border-radius: 50%" width="75" height="75" /></a>
+      <table>
+        <tr id="nurseSet">
+        </tr>
+      </table>
     </div>
     <button class="collapsible" type="button" >Personnel</button>
     <div class="content">
-        <a href="profile.html"><img src="rsrc/chris.jpg" title="chris" style="border-radius: 50%" width="75" height="75" /></a>
-        <a href="profile.html"><img src="rsrc/stock.jpg" title="stacey" style="border-radius: 50%" width="75" height="75" /></a>
+      <table>
+        <tr id="etcSet">
+        </tr>
+      </table>
     </div>
     <br /> <br /> <br /> <br /> <br /> <br />
     
@@ -83,6 +95,47 @@
           });
         }
 
+        function buildSet(visits) {
+          let dr = new Set();
+          let nrs = new Set();
+          let etc = new Set();
+          visits.forEach(element => {
+            if (element.title == "Doctor") {dr.add(element.id);}
+            else if (element.title == "Nurse") {nrs.add(element.id);}
+            else {etc.add(element.id);}
+          });
+          let ds = document.getElementById("doctorSet");
+          for (const person of dr) {
+            let row = document.createElement("TD");
+            let pic = document.createElement("IMG");
+            pic.src = "rsrc/" + person + ".jpg";
+            pic.id = person;
+            pic.className = "people";
+            row.appendChild(pic);
+            ds.appendChild(row);
+          }
+          let ns = document.getElementById("nurseSet");
+          for (const person of nrs) {
+            let row = document.createElement("TD");
+            let pic = document.createElement("IMG");
+            pic.src = "rsrc/" + person + ".jpg";
+            pic.id = person;
+            pic.className = "people";
+            row.appendChild(pic);
+            ns.appendChild(row);
+          }
+          let es = document.getElementById("etcSet");
+          for (const person of etc) {
+            let row = document.createElement("TD");
+            let pic = document.createElement("IMG");
+            pic.src = "rsrc/" + person + ".jpg";
+            pic.id = person;
+            pic.className = "people";
+            row.appendChild(pic);
+            es.appendChild(row);
+          }
+        }
+
         function getVisits() {
           let log = {};  
           $.ajax ({
@@ -92,15 +145,13 @@
                 success: function(data) {
                     console.log('Succ: ' + JSON.stringify(data));
                     log = data;
+                    buildSet(log);
                 },
                 error: function(response) {
                     console.log(response.status + " " + response.statusText);
                 }
             });
-            return log;
         }
-
-        let log = getVisits();
 
 
         </script>
