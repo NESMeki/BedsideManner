@@ -9,6 +9,11 @@
          text-align:center;
          font-family: 'gilroy-extrabold';
         }
+        .people {
+          border-radius: 50%;
+          width:100px;
+          height:100px;
+        }
     </style>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
@@ -33,27 +38,23 @@
     <button class="collapsible" type="button" >Doctors</button>
     <div class="content">
       <table>
-        <tr>
-          <th><a href= "profile.html">Dr. Eichert Profile</a></th>
-          <th><a href= "profile.html">Dr. McNeill Profile</a></th>
-          <th><a href= "profile.html">Dr. Smith Profile</a></th>
-          <th><a href= "profile.html">Dr. Tubiolo Profile</a></th>
-        </tr>
-        <tr>
-          <td><img id="photo" class="pic" src="rsrc/alex.jpg" alt="Photo of Doctor" style="width:100px;height:100px;"></td>
-          <td><img id="photo" class="pic" src="rsrc/mike.jpg" alt="Photo of Doctor" style="width:100px;height:100px;"></td>
-          <td><img id="photo" class="pic" src="rsrc/chris.jpg" alt="Photo of Doctor" style="width:100px;height:100px;"></td>
-          <td><img id="photo" class="pic" src="rsrc/philip.jpg" alt="Photo of Doctor" style="width:100px;height:100px;"></td>
+        <tr id="doctorSet">
         </tr>
       </table>
     </div>
     <button class="collapsible1" type="button" >Nurses</button>
     <div class="content">
-        <p><a href= "profile.html">Dr. Eichert Profile</a></p>
+      <table>
+        <tr id="nurseSet">
+        </tr>
+      </table>
     </div>
     <button class="collapsible" type="button" >Personnel</button>
     <div class="content">
-        <p><a href= "profile.html">Dr. Eichert Profile</a></p>
+      <table>
+        <tr id="etcSet">
+        </tr>
+      </table>
     </div>
     <br /> <br /> <br /> <br /> <br /> <br />
     
@@ -103,8 +104,36 @@
             else if (element.title == "Nurse") {nrs.add(element.id);}
             else {etc.add(element.id);}
           });
-          let arr = [dr, nrs, etc];
-          return arr;
+          let ds = document.getElementById("doctorSet");
+          for (const person of dr) {
+            let row = document.createElement("TD");
+            let pic = document.createElement("IMG");
+            pic.src = "rsrc/" + person + ".jpg";
+            pic.id = person;
+            pic.className = "people";
+            row.appendChild(pic);
+            ds.appendChild(row);
+          }
+          let ns = document.getElementById("nurseSet");
+          for (const person of nrs) {
+            let row = document.createElement("TD");
+            let pic = document.createElement("IMG");
+            pic.src = "rsrc/" + person + ".jpg";
+            pic.id = person;
+            pic.className = "people";
+            row.appendChild(pic);
+            ns.appendChild(row);
+          }
+          let es = document.getElementById("etcSet");
+          for (const person of etc) {
+            let row = document.createElement("TD");
+            let pic = document.createElement("IMG");
+            pic.src = "rsrc/" + person + ".jpg";
+            pic.id = person;
+            pic.className = "people";
+            row.appendChild(pic);
+            es.appendChild(row);
+          }
         }
 
         function getVisits() {
