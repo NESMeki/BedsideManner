@@ -48,11 +48,28 @@ function changetextbox()
     }
 }
 function sendVisit() {
-    let name = document.getElementById("nameText");
-    let id = document.getElementById("idText");
-    let reason = document.getElementById("visit");
+    let name = document.getElementById("nameText").value;
+    let id = document.getElementById("idText").value;
+    let reason = document.getElementById("visit").value;
     if (name != "" && id != "") {
-        //actually can write to file
+        let data = {
+            "id": 1,
+            "date": "today",
+            "time": "now",
+            "who": name,
+            "reason": reason
+        };
+        $.ajax({
+            type: 'POST',
+            url: "/",
+            data: JSON.stringify(data),
+            success: function(response) {
+
+            },
+            error: function(response) {
+
+            }
+        })
     }
 }
 </script>
