@@ -31,7 +31,7 @@
             dayInfo.appendChild(document.createTextNode("Time: " + element.time)); 
             infoRow.appendChild(dayInfo);
             let whoInfo = document.createElement("TD");
-            whoInfo.appendChild(document.createTextNode(element.who.name));
+            whoInfo.appendChild(document.createTextNode(element.who)); //change 
             infoRow.appendChild(whoInfo);
             let reasonInfo = document.createElement("TD");
             reasonInfo.appendChild(document.createTextNode(element.reason));
@@ -45,6 +45,7 @@
                 crossdomain: true,
                 success: function(data) {
                     console.log('Succ: ' + JSON.stringify(data));
+                    renderVisits(data);
                 },
                 error: function(response) {
                     console.log(response.status + " " + response.statusText);
