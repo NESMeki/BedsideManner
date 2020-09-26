@@ -17,7 +17,7 @@
 
 </button>
 
-<body>
+<body onload="getVisits()">
     <div class="header">
         <h1>BedsideManner</h1>
         <p>A <b>patient-first</b> interactive menu.</p>
@@ -32,10 +32,20 @@
       
     <button class="collapsible" type="button" >Doctors</button>
     <div class="content">
-      <img id="photo" class="pic" src="rsrc/chris.jpg" alt="Photo of Doctor">
-      <p><a href= "profile.html">Dr. Eichert Profile</a></p>
-      
-      <p><a href= "profile.html">Dr. Smith Profile</a></p>
+      <table>
+        <tr>
+          <th><a href= "profile.html">Dr. Eichert Profile</a></th>
+          <th><a href= "profile.html">Dr. McNeill Profile</a></th>
+          <th><a href= "profile.html">Dr. Smith Profile</a></th>
+          <th><a href= "profile.html">Dr. Tubiolo Profile</a></th>
+        </tr>
+        <tr>
+          <td><img id="photo" class="pic" src="rsrc/alex.jpg" alt="Photo of Doctor" style="width:100px;height:100px;"></td>
+          <td><img id="photo" class="pic" src="rsrc/mike.jpg" alt="Photo of Doctor" style="width:100px;height:100px;"></td>
+          <td><img id="photo" class="pic" src="rsrc/chris.jpg" alt="Photo of Doctor" style="width:100px;height:100px;"></td>
+          <td><img id="photo" class="pic" src="rsrc/philip.jpg" alt="Photo of Doctor" style="width:100px;height:100px;"></td>
+        </tr>
+      </table>
     </div>
     <button class="collapsible1" type="button" >Nurses</button>
     <div class="content">
@@ -83,6 +93,38 @@
             }
           });
         }
+
+        function buildSet(visits) {
+          let dr = new Set();
+          let nrs = new Set();
+          let etc = new Set();
+          visits.forEach(element => {
+            if (element.title == "Doctor") {dr.add(element.id);}
+            else if (element.title == "Nurse") {nrs.add(element.id);}
+            else {etc.add(element.id);}
+          });
+          let arr = [dr, nrs, etc];
+          return arr;
+        }
+
+        function getVisits() {
+          let log = {};  
+          $.ajax ({
+                method: 'GET',
+                url: "http://localhost:8000",
+                crossdomain: true,
+                success: function(data) {
+                    console.log('Succ: ' + JSON.stringify(data));
+                    log = data;
+                    buildSet(log);
+                },
+                error: function(response) {
+                    console.log(response.status + " " + response.statusText);
+                }
+            });
+        }
+
+
         </script>
     <div class="bg"></div>
 </body>
