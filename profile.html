@@ -6,6 +6,19 @@
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function updateInfo() {
+        let person = { //this is a temp, replace later with actual data
+            "name": "Mike McNeill",
+            "id": "mike",
+            "title": "Coder"
+        }
+        document.getElementById("firstName").innerHTML = person.name;
+        document.getElementById("titleName").innerHTML = person.title;
+        document.getElementById("photo").src = "rsrc/" + person.id + ".jpg";
+    }
+
+</script>
 <style type="text/css">
     table {
         margin-left: auto;
@@ -43,20 +56,17 @@
 <table>
     <tr>
         <td>
-            <img class="pic" src="rsrc/mike.jpg" alt="Photo of Doctor">
+            <img id="photo" class="pic" src="rsrc/chris.jpg" alt="Photo of Doctor">
         </td>
         <td>
-            <p class="head">
-                First Last
-                <br><br>
-                Title
-            </p>
+            <p id="firstName" class="head">First Last</p>
+            <p id="titleName" class="head">Title</p>
     </tr>
 </table>
 
 <br>
 
-<h2>Last visit:</h2>
+<h2 onclick="updateInfo()">Last visit:</h2>
 
 <p class="inner">Time:</p>
 <p class="inner">Purpose:</p>
