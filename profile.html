@@ -11,15 +11,21 @@
         //just send the most recent visit with this person as the object to this html file, 
         //we can get the other info simply from the .who part of the object. 
         let person = { //this is a temp, replace later with actual data
+            "date": "Today",
+            "time": "Now",
             "name": "Mike McNeill",
             "title": "Doctor",
             "fact": "In his free time, Mike loves to cook!",
-            "id": "mike"
+            "id": "mike",
+            "reason": "Just because"
         }
         document.getElementById("firstName").innerHTML = person.name;
         document.getElementById("titleName").innerHTML = person.title;
         document.getElementById("photo").src = "rsrc/" + person.id + ".jpg";
         document.getElementById("fact").innerHTML = person.fact;
+        document.getElementById("date").innerHTML = "Date: " + person.date;
+        document.getElementById("time").innerHTML = "Time: " + person.time;
+        document.getElementById("reason").innerHTML = "Reason: " + person.reason;
     }
     function getRecent(visits, id) { //takes in the list of visits, returns the most recent with given id
         visit.array.forEach(element => {
@@ -77,10 +83,11 @@
 
 <br>
 
-<h>Last visit:</h2>
+<h2>Last visit:</h2>
 
-<p class="inner">Time:</p>
-<p class="inner">Purpose:</p>
+<p class="inner" id="date">Date:</p>
+<p class="inner" id="time">Time:</p>
+<p class="inner" id="reason">Reason:</p>
 
 <h2>Fun fact:</h2>
 <p class="inner" id="fact"></p>
