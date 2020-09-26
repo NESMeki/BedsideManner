@@ -116,12 +116,12 @@
                 success: function(data) {
                     console.log('Succ: ' + JSON.stringify(data));
                     log = data;
+                    buildSet(log);
                 },
                 error: function(response) {
                     console.log(response.status + " " + response.statusText);
                 }
             });
-            return log;
         }
 
 
